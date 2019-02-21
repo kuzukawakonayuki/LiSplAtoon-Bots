@@ -75,6 +75,7 @@ async def stage_send(next_send):
     while True:
         time.sleep(30)
         now = datetime.datetime.now()
+        now = now + datetime.timedelta(hours=9)
         if now >= next_send :
             next_send = next_send + datetime.timedelta(hours=2)
             print(next_send)
