@@ -66,7 +66,7 @@ async def on_ready():
     print('{0.user}'.format(client))
     print(client.user.id)
     print('------------------------')
-    next_send = "2019-02-22 01:00:00"
+    next_send = "2019-02-22 03:00:00"
     next_send = datetime.datetime.strptime(next_send, '%Y-%m-%d %H:%M:%S')
     asyncio.ensure_future(stage_send(next_send))
     
