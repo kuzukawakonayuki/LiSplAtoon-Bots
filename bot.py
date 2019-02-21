@@ -81,6 +81,7 @@ async def stage_send(next_send):
             print(next_send)
             stages = Stage_Get()
             send_now = datetime.datetime.now()
+            send_now = send_now + datetime.timedelta(hours=9)
             send_now = str(send_now.hour) + "時のステージ変更です！\n"
             await channel.send(send_now)
             embed = discord.Embed(title="サーモンラン", color=0xffff00)
