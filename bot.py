@@ -67,7 +67,7 @@ async def on_ready():
     print('{0.user}'.format(client))
     print(client.user.id)
     print('------------------------')
-    next_send = "2019-02-22 19:00:00"
+    next_send = "2019-02-22 21:00:00"
     next_send = datetime.datetime.strptime(next_send, '%Y-%m-%d %H:%M:%S')
     channel = client.get_channel(548139776641990697)
     while True:
