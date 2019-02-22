@@ -67,13 +67,16 @@ async def on_ready():
     print('{0.user}'.format(client))
     print(client.user.id)
     print('------------------------')
-    next_send = "2019-02-22 21:00:00"
+    next_send = "2019-02-23 01:00:00"
     next_send = datetime.datetime.strptime(next_send, '%Y-%m-%d %H:%M:%S')
+    asyncio.ensure_future(send_mes(next_send))
+
+async def send_mes(next_send):
     channel = client.get_channel(548139776641990697)
     while True:
-        time.sleep(1)
         now = datetime.datetime.now()
         now = now + datetime.timedelta(hours=9)
+
         if now >= next_send :
             next_send = next_send + datetime.timedelta(hours=2)
             print(next_send)
@@ -98,6 +101,8 @@ async def on_ready():
             embed.add_field(name="現在", value=stages[8])
             embed.add_field(name="次回", value=stages[9])
             await channel.send(embed=embed)
+
+        await asyncio.sleep(10)
 
 client.run('NTQ3Mzg3NzQwNDQyOTg0NDQ4.D02COQ.SRT1fXlvKs-CaXBe6uUNqo0NuDE')
 
