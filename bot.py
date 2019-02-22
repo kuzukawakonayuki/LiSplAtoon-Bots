@@ -25,6 +25,7 @@ def Stage_Get():
     held_time = held_time.replace("T"," ")
     held_time = datetime.datetime.strptime(held_time, '%Y-%m-%d %H:%M:%S')
     held_now = datetime.datetime.now()
+    held_now = held_now + datetime.timedelta(hours=9)
 
     if held_now >= held_time:
         held = '開催中'
