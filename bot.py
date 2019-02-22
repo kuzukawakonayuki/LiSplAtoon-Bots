@@ -71,7 +71,7 @@ async def on_ready():
     next_send = datetime.datetime.strptime(next_send, '%Y-%m-%d %H:%M:%S')
     channel = client.get_channel(548139776641990697)
     while True:
-        time.sleep(30)
+        time.sleep(1)
         now = datetime.datetime.now()
         now = now + datetime.timedelta(hours=9)
         if now >= next_send :
