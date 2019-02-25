@@ -83,13 +83,13 @@ async def on_ready():
     print('{0.user}'.format(client))
     print(client.user.id)
     print('------------------------')
-    next_send = "2019-02-24 21:00:00"
+    next_send = "2019-02-28 21:00:00"
     next_send = datetime.datetime.strptime(next_send, '%Y-%m-%d %H:%M:%S')
     asyncio.ensure_future(send_mes(next_send))
 
 
 async def send_mes(next_send):
-    channel = client.get_channel(548139776641990697)
+    channel = client.get_channel(547410103708680195)
     while True:
         now = datetime.datetime.now()
         now = now + datetime.timedelta(hours=9)
@@ -127,5 +127,13 @@ async def send_mes(next_send):
             await channel.send(embed=embed)
 
         await asyncio.sleep(10)
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('/bosyu'):
+        await message.channel.send('募集中')
 
 client.run('NTQ3Mzg3NzQwNDQyOTg0NDQ4.D02COQ.SRT1fXlvKs-CaXBe6uUNqo0NuDE')
