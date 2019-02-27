@@ -89,7 +89,7 @@ async def on_ready():
 
 
 async def send_mes(next_send):
-    channel = client.get_channel(548139776641990697)
+    channel = client.get_channel(547410103708680195)
     while True:
         now = datetime.datetime.now()
         now = now + datetime.timedelta(hours=9)
@@ -100,11 +100,15 @@ async def send_mes(next_send):
 
             while True:
                 try:
+                    print("Stage_Get")
                     stages = Stage_Get()
                     break
-                except:
-                    print("StageGet Retry")
+                except Exception as error:
+                    print(error)
+                    await asyncio.sleep(30)
+                    print("Stage_Get Retry")
 
+            print("Stage_Get OK")
             send_now = datetime.datetime.now()
             send_now = send_now + datetime.timedelta(hours=9)
             send_now = str(send_now.hour) + "時のステージ変更です！\n"
