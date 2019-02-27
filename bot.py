@@ -89,7 +89,7 @@ async def on_ready():
 
 
 async def send_mes(next_send):
-    channel = client.get_channel(547410103708680195)
+    channel = client.get_channel(548139776641990697)
     while True:
         now = datetime.datetime.now()
         now = now + datetime.timedelta(hours=9)
